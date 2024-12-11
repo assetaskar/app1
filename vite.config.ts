@@ -6,5 +6,21 @@ export default defineConfig({
   server: {
     port: 5001,
   },
-  plugins: [vue()],
+  build: {
+    rollupOptions: {
+      input: "src/main.ts",
+      output: {
+        format: "system",
+        entryFileNames: '[name].js',
+      },
+      preserveEntrySignatures: 'strict'
+    },
+  },
+  plugins: [vue({
+    template: {
+      transformAssetUrls: {
+        base: "/src",
+      },
+    },
+  })],
 })
