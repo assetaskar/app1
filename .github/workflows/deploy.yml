@@ -34,3 +34,15 @@ jobs:
       - run: npm install
 
       - run: npm run build
+
+      - name: Log in to the Container registry
+        run: echo ${{ secrets.GITHUB_TOKEN }} | docker login $REGISTRY -u $ --password-stdin
+
+      - name: Build Docker image
+        run: docker build -t $REGISTRY/$IMAGE:stage .
+
+      - name: Push docker image
+        run: docker push $REGISTRY/$IMAGE:stage
+
+#      - name: Deploy webhook
+#        run: curl -f -k -X POST https://pr.nimbus.mdev.kz/api/webhooks/57898cc8-ae9b-4003-9550-0db3849471f9
