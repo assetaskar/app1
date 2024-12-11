@@ -44,5 +44,5 @@ jobs:
       - name: Push docker image
         run: docker push $REGISTRY/$IMAGE:stage
 
-#      - name: Deploy webhook
+#      - name: Deploy webhooks
 #        run: curl -f -k -X POST https://pr.nimbus.mdev.kz/api/webhooks/57898cc8-ae9b-4003-9550-0db3849471f9
