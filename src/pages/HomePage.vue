@@ -9,7 +9,7 @@
     </h1>
     <br/>
     <div>
-      <router-link to="/app2">APP 2</router-link>
+      <router-link to="app2">APP 2</router-link>
     </div>
   </div>
 </template>
